@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:oval="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:unix-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#unix" xmlns:red-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#linux" xmlns:ind-def="http://oval.mitre.org/XMLSchema/oval-definitions-5#independent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://oval.mitre.org/XMLSchema/oval-common-5 oval-common-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5 oval-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#unix unix-definitions-schema.xsd http://oval.mitre.org/XMLSchema/oval-definitions-5#linux linux-definitions-schema.xsd">
+ <generator>
+  <oval:product_name>Red Hat OVAL Patch Definition Merger</oval:product_name>
+  <oval:product_version>3</oval:product_version>
+  <oval:schema_version>5.10</oval:schema_version>
+  <oval:timestamp>2021-09-29T02:02:27</oval:timestamp>
+  <oval:content_version>1632880947</oval:content_version>
+ </generator>
+ <definitions>
+  <definition class="patch" id="oval:com.redhat.rhba:def:20070304" version="641">
+   <metadata>
+    <title>RHBA-2007:0304: Updated kernel packages available for Red Hat Enterprise Linux 4 Update 5 (Important)</title>
+    <affected family="unix">
+     <platform>Red Hat Enterprise Linux 4</platform>
+    </affected>
+    <reference ref_id="RHBA-2007:0304" ref_url="https://access.redhat.com/errata/RHBA-2007:0304" source="RHSA"/>
+    <reference ref_id="CVE-2005-2873" ref_url="https://access.redhat.com/security/cve/CVE-2005-2873" source="CVE"/>
+    <reference ref_id="CVE-2005-3257" ref_url="https://access.redhat.com/security/cve/CVE-2005-3257" source="CVE"/>
+    <reference ref_id="CVE-2006-0557" ref_url="https://access.redhat.com/security/cve/CVE-2006-0557" source="CVE"/>
+    <reference ref_id="CVE-2006-1863" ref_url="https://access.redhat.com/security/cve/CVE-2006-1863" source="CVE"/>
+    <reference ref_id="CVE-2007-1592" ref_url="https://access.redhat.com/security/cve/CVE-2007-1592" source="CVE"/>
+    <reference ref_id="CVE-2007-3379" ref_url="https://access.redhat.com/security/cve/CVE-2007-3379" source="CVE"/>
+    <description>New features introduced in this update include:
+
+* Xen paravirt kernels for x86/x86_64* 
+* CONFIG_SERIAL_8250_NR_UARTS is increased to 64
+* implement diskdump support for sata_nv driver
+* implement diskdump support for ibmvscsi driver
+* add netdump support to 8139cp driver
+* update CIFS to 1.45
+
+Added Platform support:
+
+* add support to allow disabling of MSI on PHX6700/6702 SHPC
+* add support for Intel ICH9 chipset
+* add PCIe power management quirk
+* add support for H206 processor PowerNow! with new freqency control
+* add support for AMD quad-core systems
+* add support for RDTSCP
+* add MCE Thresholding support for AMD 0x10 family processors
+* add PCI-Express support for Altix
+* add support for eClipz
+* add new ppc host ethernet adapter device driver
+* update SHUB2 hardware support
+
+The following device drivers have been upgraded to new versions:
+
+3w-9xxx: 2.26.04.010 to 2.26.05.007
+ahci: 1.2 to 2.0
+ata_piix: 1.05 to 2.00ac7
+bnx2: 1.4.38 to 1.4.43-rh
+bonding: 2.6.3 to 2.6.3-rh
+cciss: 2.6.10 to 2.6.14
+e1000: 7.0.33-k2-NAPI to 7.2.7-k2-NAPI
+ibmvscsic: 1.5.6 to 1.5.7
+ipr: 2.0.11.2 to 2.0.11.4
+ixgb: 1.0.100-k2-NAPI to 1.0.109-k2-NAPI
+libata: 1.20 to 2.00
+megaraid_mm: 2.20.2.6 to 2.20.2.6rh
+megaraid_sas: 00.00.02.03-RH1 to 00.00.03.05
+mptbase: 3.02.62.01rh to 3.02.73rh
+pdc_adma: 0.03 to 0.04
+qla2100: 8.01.04-d7 to 8.01.04-d8-rh1
+qla2200: 8.01.04-d7 to 8.01.04-d8-rh1
+qla2300: 8.01.04-d7 to 8.01.04-d8-rh1
+qla2322: 8.01.04-d7 to 8.01.04-d8-rh1
+qla2400: 8.01.04-d7 to 8.01.04-d8-rh1
+qla2xxx: 8.01.04-d7 to 8.01.04-d8-rh1
+qla6312: 8.01.04-d7 to 8.01.04-d8-rh1
+r8169: 1.2 to 2.2LK-NAPI
+sata_mv: 0.6 to 0.7
+sata_nv: 0.8 to 3.2
+sata_promise: 1.04 to 1.05
+sata_qstor: 0.05 to 0.06
+sata_sil: 0.9 to 2.0
+sata_sis: 0.5 to 0.6
+sata_svw: 1.07 to 2.0
+sata_sx4: 0.8 to 0.9
+sata_uli: 0.5 to 1.0
+sata_via: 1.1 to 2.0
+sata_vsc: 1.2 to 2.0
+sky2: 1.1 to 1.6
+stex: 2.9.0.13 to 3.0.0.1
+tg3: 3.52-rh to 3.64-rh
+
+Infiniband update from 1.0 to OFED-1.1 code base
+
+There were several bug fixes in various parts of the kernel. The ongoing
+effort to resolve these problems has resulted in a marked improvement
+in the reliability and scalability of Red Hat Enterprise Linux 4.</description>
+    <advisory from="secalert@redhat.com">
+     <severity>Important</severity>
+     <rights>Copyright 2008 Red Hat, Inc.</rights>
+     <issued date="2007-04-28"/>
+     <updated date="2008-03-20"/>
+     <cve href="https://access.redhat.com/security/cve/CVE-2005-2873" impact="low" public="20050509">CVE-2005-2873</cve>
+     <cve href="https://access.redhat.com/security/cve/CVE-2005-3257" impact="low" public="20051015">CVE-2005-3257</cve>
+     <cve href="https://access.redhat.com/security/cve/CVE-2006-0557" impact="low" public="20060217">CVE-2006-0557</cve>
+     <cve href="https://access.redhat.com/security/cve/CVE-2006-1863" impact="moderate" public="20060420">CVE-2006-1863</cve>
+     <cve href="https://access.redhat.com/security/cve/CVE-2007-1592" impact="important" public="20070316">CVE-2007-1592</cve>
+     <cve href="https://access.redhat.com/security/cve/CVE-2007-3379" impact="important" public="20070501">CVE-2007-3379</cve>
+     <bugzilla href="https://bugzilla.redhat.com/243258" id="243258">CVE-2007-1592 IPv6 oops triggerable by any user</bugzilla>
+     <bugzilla href="https://bugzilla.redhat.com/1617762" id="1617762">CVE-2005-2873 security flaw</bugzilla>
+     <bugzilla href="https://bugzilla.redhat.com/1617808" id="1617808">CVE-2005-3257 security flaw</bugzilla>
+     <bugzilla href="https://bugzilla.redhat.com/1618010" id="1618010">CVE-2006-0557 security flaw</bugzilla>
+     <bugzilla href="https://bugzilla.redhat.com/1618070" id="1618070">CVE-2006-1863 security flaw</bugzilla>
+     <bugzilla href="https://bugzilla.redhat.com/1618314" id="1618314">CVE-2007-3379 security flaw</bugzilla>
+     <affected_cpe_list>
+      <cpe>cpe:/o:redhat:enterprise_linux:4</cpe>
+      <cpe>cpe:/o:redhat:enterprise_linux:4::as</cpe>
+      <cpe>cpe:/o:redhat:enterprise_linux:4::desktop</cpe>
+      <cpe>cpe:/o:redhat:enterprise_linux:4::es</cpe>
+      <cpe>cpe:/o:redhat:enterprise_linux:4::ws</cpe>
+     </affected_cpe_list>
+    </advisory>
+   </metadata>
+   <criteria operator="OR">
+    <criterion comment="Red Hat Enterprise Linux must be installed" test_ref="oval:com.redhat.rhba:tst:20070304026"/>
+    <criteria operator="AND">
+     <criterion comment="Red Hat Enterprise Linux 4 is installed" test_ref="oval:com.redhat.rhba:tst:20070304025"/>
+     <criteria operator="OR">
+      <criterion comment="kernel earlier than 0:2.6.9-55.EL is currently running" test_ref="oval:com.redhat.rhba:tst:20070304023"/>
+      <criterion comment="kernel earlier than 0:2.6.9-55.EL is set to boot up on next boot" test_ref="oval:com.redhat.rhba:tst:20070304024"/>
+     </criteria>
+     <criteria operator="OR">
+      <criteria operator="AND">
+       <criterion comment="kernel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304001"/>
+       <criterion comment="kernel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304002"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-devel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304003"/>
+       <criterion comment="kernel-devel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304004"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-doc is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304005"/>
+       <criterion comment="kernel-doc is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304006"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-hugemem is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304007"/>
+       <criterion comment="kernel-hugemem is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304008"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-hugemem-devel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304009"/>
+       <criterion comment="kernel-hugemem-devel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304010"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-largesmp is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304011"/>
+       <criterion comment="kernel-largesmp is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304012"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-largesmp-devel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304013"/>
+       <criterion comment="kernel-largesmp-devel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304014"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-smp is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304015"/>
+       <criterion comment="kernel-smp is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304016"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-smp-devel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304017"/>
+       <criterion comment="kernel-smp-devel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304018"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-xenU is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304019"/>
+       <criterion comment="kernel-xenU is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304020"/>
+      </criteria>
+      <criteria operator="AND">
+       <criterion comment="kernel-xenU-devel is earlier than 0:2.6.9-55.EL" test_ref="oval:com.redhat.rhba:tst:20070304021"/>
+       <criterion comment="kernel-xenU-devel is signed with Red Hat master key" test_ref="oval:com.redhat.rhba:tst:20070304022"/>
+      </criteria>
+     </criteria>
+    </criteria>
+   </criteria>
+  </definition>
+</definitions>
+</oval_definitions>
