@@ -25,10 +25,9 @@ def get_criteria(element):
                 state_elem = checker_elem.find(".//ind-def:state", namespaces=NSMAP)
             elif "#linux" in checker_elem.tag:
                 state_elem = checker_elem.find(".//red-def:state", namespaces=NSMAP)
-            try:
-                state_ref = state_elem.attrib.get('state_ref')
-            except Exception:
-                import pdb; pdb.set_trace()
+
+            state_ref = state_elem.attrib.get('state_ref')
+
             uname = root.find(f'''.//*[@id='{state_ref}']''')
             elem_uname = uname.getchildren()[0].tag.split("}")[1]
             operation = uname.getchildren()[0].get('operation')
@@ -46,15 +45,6 @@ def get_criteria(element):
     return datas
 
 
-def manage_output():
-    if not os.path.exists("output.json"):
-        with open("output.json", "w") as out:
-            json.dump([], out, indent=2)
-    with open("output.json", 'r') as out:
-        data = json.load(out)
-    return data
-
-
 if __name__ == "__main__":
     print('hi')
     # json_data = manage_output()
@@ -63,22 +53,18 @@ if __name__ == "__main__":
     output = {
         'advisory': []
     }
-    root = etree.fromstring(response.content)
     NSMAP = {
         'xmlns': "http://oval.mitre.org/XMLSchema/oval-definitions-5",
         'red-def': "http://oval.mitre.org/XMLSchema/oval-definitions-5#linux",
         'unix-def': "http://oval.mitre.org/XMLSchema/oval-definitions-5#unix",
         'ind-def': "http://oval.mitre.org/XMLSchema/oval-definitions-5#independent"
     }
+    root = etree.fromstring(response.content)
     definition_list = root.findall('.//xmlns:definition', namespaces=NSMAP)
-    tests = root.find('.//xmlns:tests', namespaces=NSMAP)
-    states = root.find('.//xmlns:states', namespaces=NSMAP)
 
     for index, definition in enumerate(definition_list):
         print('index', index)
         title = definition.find(".//xmlns:title", namespaces=NSMAP)
-        # if any(d['title'] == title.text for d in json_data):
-        #     continue
         severity = definition.find(".//xmlns:severity", namespaces=NSMAP)
         definition_dict = {
             "title": title.text,
